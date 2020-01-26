@@ -16,9 +16,9 @@ void setup()
 
 void draw()
 {
-  background(0);
+  background(255, 255, 255);
   
-  fill(255, 0, 0);
+  fill(0);
   
   for (Skyline skyline : g_Skylines)
   {
