@@ -16,20 +16,33 @@ class Building
  void Display(boolean drawWindows)
  {
    PVector topLeftCorner = PVector.sub(m_BasePosition, new PVector(m_Width/2, m_Height));
-
+   
+   fill(0);
    rect(topLeftCorner.x, topLeftCorner.y, m_Width, m_Height);
    
    if (drawWindows)
    {
-     float xPos = topLeftCorner.x;
+     pushMatrix();
      float yPos = topLeftCorner.y;
      
      float windowWidth = m_Width/(2*m_NumWindows + 1);
+     float floorGap = m_Height/(2*m_NumWindows + 1);
      
-     for (int i = 0; i < m_NumWindows; ++i)
+     fill(255, 255, 255);
+     
+     while(yPos < topLeftCorner.y + m_Height - 2*floorGap)
      {
-       
+       yPos += floorGap;
+       float xPos = topLeftCorner.x;
+       for (int i = 0; i < m_NumWindows; ++i)
+       {
+         xPos += windowWidth;
+         rect(xPos, yPos, windowWidth, windowWidth);
+         xPos += windowWidth;
+       }
      }
+     
+     popMatrix();
    }
  }
 }

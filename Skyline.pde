@@ -13,7 +13,7 @@ class Skyline
   
   void Display()
   {
-     boolean drawWindows = false;
+     boolean drawWindows = true;
      for(Building building : m_Buildings)
      {
         building.Display(drawWindows); 
@@ -39,7 +39,7 @@ class Skyline
       float buildingHeight = random(minBuildingHeight, maxBuildingHeight);
       PVector buildingPos = new PVector(xPos, m_HeightOffset);
       
-      m_Buildings.add(new Building(buildingHeight, buildingWidth, buildingPos));
+      m_Buildings.add(new Building(buildingHeight, buildingWidth, buildingPos, 5));
       xPos += buildingWidth/2;
     }
   }
