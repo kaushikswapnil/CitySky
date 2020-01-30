@@ -4,13 +4,15 @@ class Building
  float m_Width;
  PVector m_BasePosition;
  int m_NumWindows;
+ Skyline m_Parent;
  
- Building(float bHeight, float bWidth, PVector basePos, int numFlats)
+ Building(Skyline parent, PVector basePos)
  {
-   m_Height = bHeight;
-   m_Width = bWidth;
-   m_BasePosition = basePos.copy();
-   m_NumWindows = numFlats;
+   m_Parent = parent;
+   m_Height = random(g_BaseLayerMinBuildingHeight, g_BaseLayerMaxBuildingHeight);
+   m_Width = random(g_BaseLayerMinBuildingWidth, g_BaseLayerMaxBuildingWidth);
+   m_BasePosition = PVector.add(basePos, new PVector(m_Width/2, 0));
+   m_NumWindows = 3;
  }
  
  void Display(boolean drawWindows)
