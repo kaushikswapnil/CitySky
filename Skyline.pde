@@ -13,10 +13,9 @@ class Skyline
   
   void Display()
   {
-     boolean drawWindows = true;
      for(Building building : m_Buildings)
      {
-        building.Display(drawWindows); 
+        building.Display(); 
      }
   }
   
